@@ -1,12 +1,14 @@
 import React from "react";
 import "../styles/Home.css";
 import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 import Partners from "../components/Partners";
+import Contacts from "../components/Contacts";
+import Footer from "../components/Footer";
 import { HomeSection } from "../data/HomeSection";
 import { CourseSection } from "../data/CourseSection";
 import { TutorsSection, TutorsList } from "../data/TutorsSection";
 import { PartnerSection , partnerListSection} from "../data/PartnersSection";
+import { contactSection } from "../data/ContactsSection";
 import Tutors from "../components/Tutors";
 import Parse from "html-react-parser";
 function Home() {
@@ -18,7 +20,10 @@ function Home() {
         {/* home section */}
         <section id="home">
           <img src={HomeSection.image} />
-          {Parse(HomeSection.content)}
+          <div className="kolom">
+            {Parse(HomeSection.content)}
+          </div>
+
         </section>
 
         {/* course section */}
@@ -47,6 +52,13 @@ function Home() {
           <Partners partnersListSection = {partnerListSection}/>
         </div>
       </section>
+
+      {/* contact section */}
+      <div id="contact">
+        <div className="wrapper">
+          <Contacts contactSection = {contactSection}/>
+        </div>
+    </div>
 
       <Footer />
     </div>
